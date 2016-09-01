@@ -14,15 +14,6 @@
         android:gravity="center"
         android:text="add" />
 
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/add"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="delete" />
 
     <Button
         android:id="@+id/delete_all"

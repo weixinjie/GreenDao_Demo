@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     QueryBuilder<Teacher> teacherQueryBuilder;
 
     Button add;
-    Button delete;
     Button delete_all;
     Button delete_one;
     Button delete_teacher;
@@ -27,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         add = (Button) findViewById(R.id.add);
-        delete = (Button) findViewById(R.id.delete);
         delete_all = (Button) findViewById(R.id.delete_all);
         delete_one = (Button) findViewById(R.id.delete_one);
         delete_teacher = (Button) findViewById(R.id.delete_teacher);
@@ -39,17 +37,10 @@ public class MainActivity extends AppCompatActivity {
         studentQueryBuilder = studentDao.queryBuilder();
         teacherQueryBuilder = teacherDao.queryBuilder();
 
-        delete.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (studentQueryBuilder.list().size() == 0) {
-                    return;
-                }
-                studentDao.deleteByKey(studentQueryBuilder.list().get(0).getStudentId());
-                print_message();
 
-            }
-        });
-
+        /**
+         * 增加一个老师与两个学生
+         */
         add.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 long id = System.currentTimeMillis();
@@ -65,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * 删除所有学生(不包含老师)
+         */
         delete_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * 删除学生表中第一条数据
+         */
         delete_one.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Student zhagnrui_student = studentQueryBuilder.list().get(0);
@@ -81,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * 删除老师表中第一条数据
+         */
         delete_teacher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 打印表的内容
+     */
     private void print_message() {
         if (studentQueryBuilder.list().size() == 0) {
             Log.e("------", "学生是空的");

@@ -41,3 +41,11 @@ captures/
 # Keystore files
 *.jks
 
+.idea/compiler.xml
+.idea/copyright/
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+Android_DownLoad_Demo/FragmentTabhost/GreenDao_Demo/app/gradle/
+Android_DownLoad_Demo/FragmentTabhost/GreenDao_Demo/app/gradlew
+Android_DownLoad_Demo/FragmentTabhost/GreenDao_Demo/app/gradlew.bat
